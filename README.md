@@ -1,12 +1,10 @@
 # Smart Library Architecture Prototype
 
-**Course:** CSCS5103 Software Architecture (Fall 2026)  
-**University:** Kazakh-British Technical University (School of IT and Engineering)  
 **Author:** Saduakhas Olzhas  
 
 ## Overview
 
-This repository contains a working circulation desk prototype built with a three-layer architecture (**Presentation Layer**, **Business Layer**, and **Data-Access Layer**)[cite: 198]. The prototype demonstrates technical partitioning, closed layers (layer of isolation), high functional cohesion, and low coupling using in-memory storage[cite: 359, 360].
+This repository contains a working circulation desk prototype built with a three-layer architecture (**Presentation Layer**, **Business Layer**, and **Data-Access Layer**). The prototype demonstrates technical partitioning, closed layers (layer of isolation), high functional cohesion, and low coupling using in-memory storage.
 
 ### Project Structure
 
@@ -24,25 +22,25 @@ This repository contains a working circulation desk prototype built with a three
 
 ## Architecture & Request Flow
 
-1. **Presentation Layer (`controllers.py`):** `UserController` and `BookController` accept parsed JSON payloads and return `(status_code, response_dict)` tuples without accessing the in-memory stores directly[cite: 359].
-2. **Business Layer (`services.py`):** `UserService` and `BookService` enforce circulation rules[cite: 359]. `BookService.borrow_book()` coordinates with `UserService` to verify reader existence before checking and updating book availability[cite: 359].
-3. **Data-Access Layer (`repositories.py`):** `UserRepository`, `BookRepository`, and `LoanRepository` encapsulate the in-memory Python dictionaries and lists (`_users`, `_books`, `_loans`)[cite: 359].
+1. **Presentation Layer (`controllers.py`):** `UserController` and `BookController` accept parsed JSON payloads and return `(status_code, response_dict)` tuples without accessing the in-memory stores directly.
+2. **Business Layer (`services.py`):** `UserService` and `BookService` enforce circulation rules. `BookService.borrow_book()` coordinates with `UserService` to verify reader existence before checking and updating book availability.
+3. **Data-Access Layer (`repositories.py`):** `UserRepository`, `BookRepository`, and `LoanRepository` encapsulate the in-memory Python dictionaries and lists (`_users`, `_books`, `_loans`).
 
 ---
 
 ## Prerequisites & How to Run
 
-* **Prerequisites:** Python 3.9 or newer[cite: 359]. No external packages or third-party dependencies are required (uses Python's built-in `http.server`, `json`, and `dataclasses` modules)[cite: 359].
+* **Prerequisites:** Python 3.9 or newer. No external packages or third-party dependencies are required (uses Python's built-in `http.server`, `json`, and `dataclasses` modules).
 
 ### Start the Server
 
-Run the following command in the project directory[cite: 359]:
+Run the following command in the project directory:
 
 ```bash
 python app.py
 ```
 
-Output[cite: 359]:
+Output:
 ```text
 Smart Library server running on [http://127.0.0.1:8000](http://127.0.0.1:8000)
 ```
@@ -51,7 +49,7 @@ Smart Library server running on [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ## Required REST Endpoints & How to Call Them (`curl`)
 
-Open a second terminal window while the server is running and run the following commands[cite: 359]:
+Open a second terminal window while the server is running and run the following commands:
 
 ### 1. Register a reader (`POST /users`)
 ```bash
